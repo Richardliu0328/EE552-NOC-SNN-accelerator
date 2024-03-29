@@ -2,37 +2,42 @@
 
 import SystemVerilogCSP::*;
 
-module arbiter(interface req0, interface req1, interface req2, interface req3,interface req4,interface W);
+module arbiter(interface N, interface E, interface W, interface S,interface out);
 
 
 parameter FL=2;
 parameter BL=1;
 
-logic req_0,req_1, req_2, req_3, req_4;
+logic [WIDTH-1:0]N_packet, E_packet,W_packet,S_packet,out_packet;
 logic [2:0]winner;
+logic req_N,req_E, req_W, req_S, req_PE;	
+//Depacket
+// North	
 always begin
-	req0.Receive(req_0);
-	req1.Receive(req_1);
-	req2.Receive(req_2);
-	req3.Receive(req_3);
-	req4.Receive(req_4);
-	#FL;
-	if(req_0)begin
+	N.Receive(N_packet);
+	[]
+always begin
+	if(req_N)begin
 		winner=0;
 	end
-	if(req_1)begin
+	if(req_E)begin
 		winner=1;
 	end
-	if(req_2)begin
+	if(req_W)begin
 		winner=2;
 	end
-	if(req_3)begin
+	if(req_S)begin
 		winner=3;
 	end
-	if(req_4)begin
+	if(req_PE)begin
 		winner=4;
 	end	
-W.Send(winner);
+	if(winner==0)begin
+		fork 
+			
+	
+	
+	W.Send(winner);
 #BL;
 end
 endmodule
