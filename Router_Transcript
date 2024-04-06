@@ -1,0 +1,209 @@
+run
+# always block begins
+# router_tb.bb1 Data Bucket Starts Receiving data                    0
+# router_tb.bb2 Data Bucket Starts Receiving data                    0
+# router_tb.bb3 Data Bucket Starts Receiving data                    0
+# router_tb.bb4 Data Bucket Starts Receiving data                    0
+# router_tb.bb5 Data Bucket Starts Receiving data                    0
+# I got the packet
+# I separate the address
+# PE send
+# Finish always
+# always block begins
+### router_tb.W_in.Receive Stalled(                   5) @              5000000
+### router_tb.E_in.Receive Stalled(                   5) @              5000000
+### router_tb.PE_out.Receive Stalled(                   6) @              6000000
+# router_tb.bb5 Data Bucket Finishes Receiving data              6000000
+# Execution cycle=          1, Cycle Time=          7, Average CycleTime=7.000000, Average Throughput=0.142857 
+# 
+# router_tb.bb5 Data Bucket Starts Receiving data              7000000
+# PE send
+# PE send
+### router_tb.S_in.Receive Stalled(                  10) @             10000000
+### router_tb.PE_out.Receive Stalled(                   4) @             11000000
+# router_tb.bb5 Data Bucket Finishes Receiving data             11000000
+# Execution cycle=          2, Cycle Time=          5, Average CycleTime=6.000000, Average Throughput=0.166667 
+# 
+# router_tb.bb5 Data Bucket Starts Receiving data             12000000
+### router_tb.RR.arb_PE.out2.Send Stalled(                   3) @             12000000
+### router_tb.RR.PEout_S.Send Stalled(                   1) @             13000000
+# PE send
+### router_tb.PE_out.Receive Stalled(                   2) @             14000000
+# router_tb.bb5 Data Bucket Finishes Receiving data             14000000
+# Execution cycle=          3, Cycle Time=          3, Average CycleTime=5.000000, Average Throughput=0.200000 
+# 
+# router_tb.bb5 Data Bucket Starts Receiving data             15000000
+### router_tb.W_in.Receive Stalled(                   7) @             15000000
+### router_tb.E_in.Receive Stalled(                   7) @             15000000
+# North send
+### router_tb.PE_out.Receive Stalled(                   2) @             17000000
+# router_tb.bb5 Data Bucket Finishes Receiving data             17000000
+# Execution cycle=          4, Cycle Time=          3, Average CycleTime=4.500000, Average Throughput=0.222222 
+# 
+# router_tb.bb5 Data Bucket Starts Receiving data             18000000
+### router_tb.RR.Nout_W.Send Stalled(                   3) @             20000000
+# North send
+### router_tb.S_in.Receive Stalled(                   6) @             20000000
+### router_tb.N_out.Receive Stalled(                  21) @             21000000
+# router_tb.bb1 Data Bucket Finishes Receiving data             21000000
+# Execution cycle=          1, Cycle Time=         22, Average CycleTime=22.000000, Average Throughput=0.045455 
+# 
+# router_tb.bb1 Data Bucket Starts Receiving data             22000000
+# North send
+### router_tb.N_out.Receive Stalled(                   2) @             24000000
+# router_tb.bb1 Data Bucket Finishes Receiving data             24000000
+# Execution cycle=          2, Cycle Time=          3, Average CycleTime=12.500000, Average Throughput=0.080000 
+# 
+# router_tb.bb1 Data Bucket Starts Receiving data             25000000
+### router_tb.RR.arb_N.out2.Send Stalled(                   1) @             25000000
+### router_tb.PE_in.Receive Stalled(                  25) @             25000000
+# North send
+### router_tb.N_out.Receive Stalled(                   2) @             27000000
+# router_tb.bb1 Data Bucket Finishes Receiving data             27000000
+# Execution cycle=          3, Cycle Time=          3, Average CycleTime=9.333333, Average Throughput=0.107143 
+# 
+# router_tb.bb1 Data Bucket Starts Receiving data             28000000
+### router_tb.N_in.Receive Stalled(                  27) @             30000000
+### router_tb.N_out.Receive Stalled(                   3) @             31000000
+# router_tb.bb1 Data Bucket Finishes Receiving data             31000000
+# I got the packet
+# I separate the address
+# Execution cycle=          4, Cycle Time=          4, Average CycleTime=8.000000, Average Throughput=0.125000 
+# 
+# router_tb.bb1 Data Bucket Starts Receiving data             32000000
+# East send
+# Finish always
+# always block begins
+### router_tb.W_in.Receive Stalled(                  14) @             35000000
+### router_tb.E_out.Receive Stalled(                  36) @             36000000
+# router_tb.bb2 Data Bucket Finishes Receiving data             36000000
+# Execution cycle=          1, Cycle Time=         37, Average CycleTime=37.000000, Average Throughput=0.027027 
+# 
+# router_tb.bb2 Data Bucket Starts Receiving data             37000000
+# East send
+### router_tb.S_in.Receive Stalled(                  17) @             40000000
+### router_tb.E_out.Receive Stalled(                   4) @             41000000
+# router_tb.bb2 Data Bucket Finishes Receiving data             41000000
+# Execution cycle=          2, Cycle Time=          5, Average CycleTime=21.000000, Average Throughput=0.047619 
+# 
+# router_tb.bb2 Data Bucket Starts Receiving data             42000000
+# East send
+### router_tb.N_in.Receive Stalled(                  12) @             45000000
+### router_tb.PE_in.Receive Stalled(                  17) @             45000000
+### router_tb.E_out.Receive Stalled(                   4) @             46000000
+# router_tb.bb2 Data Bucket Finishes Receiving data             46000000
+# I got the packet
+# I separate the address
+# Execution cycle=          3, Cycle Time=          5, Average CycleTime=15.666667, Average Throughput=0.063830 
+# 
+# router_tb.bb2 Data Bucket Starts Receiving data             47000000
+# West send
+# East send
+# Finish always
+# always block begins
+### router_tb.E_in.Receive Stalled(                  32) @             50000000
+run
+### router_tb.W_out.Receive Stalled(                  51) @             51000000
+# router_tb.bb3 Data Bucket Finishes Receiving data             51000000
+### router_tb.E_out.Receive Stalled(                   4) @             51000000
+# router_tb.bb2 Data Bucket Finishes Receiving data             51000000
+# Execution cycle=          1, Cycle Time=         52, Average CycleTime=52.000000, Average Throughput=0.019231 
+# 
+# router_tb.bb3 Data Bucket Starts Receiving data             52000000
+# Execution cycle=          4, Cycle Time=          5, Average CycleTime=13.000000, Average Throughput=0.076923 
+# 
+# router_tb.bb2 Data Bucket Starts Receiving data             52000000
+# West send
+### router_tb.S_in.Receive Stalled(                  12) @             55000000
+### router_tb.W_out.Receive Stalled(                   4) @             56000000
+# router_tb.bb3 Data Bucket Finishes Receiving data             56000000
+# Execution cycle=          2, Cycle Time=          5, Average CycleTime=28.500000, Average Throughput=0.035088 
+# 
+# router_tb.bb3 Data Bucket Starts Receiving data             57000000
+# West send
+### router_tb.N_in.Receive Stalled(                  12) @             60000000
+### router_tb.PE_in.Receive Stalled(                  12) @             60000000
+### router_tb.W_out.Receive Stalled(                   4) @             61000000
+# router_tb.bb3 Data Bucket Finishes Receiving data             61000000
+# I got the packet
+# I separate the address
+# Execution cycle=          3, Cycle Time=          5, Average CycleTime=20.666667, Average Throughput=0.048387 
+# 
+# router_tb.bb3 Data Bucket Starts Receiving data             62000000
+# South send
+# West send
+# Finish always
+# always block begins
+### router_tb.W_in.Receive Stalled(                  27) @             65000000
+### router_tb.E_in.Receive Stalled(                  12) @             65000000
+### router_tb.S_out.Receive Stalled(                  66) @             66000000
+# router_tb.bb4 Data Bucket Finishes Receiving data             66000000
+### router_tb.W_out.Receive Stalled(                   4) @             66000000
+# router_tb.bb3 Data Bucket Finishes Receiving data             66000000
+# Execution cycle=          1, Cycle Time=         67, Average CycleTime=67.000000, Average Throughput=0.014925 
+# 
+# router_tb.bb4 Data Bucket Starts Receiving data             67000000
+# Execution cycle=          4, Cycle Time=          5, Average CycleTime=16.750000, Average Throughput=0.059701 
+# 
+# router_tb.bb3 Data Bucket Starts Receiving data             67000000
+# South send
+# South send
+### router_tb.PE_in.Receive Stalled(                   7) @             70000000
+### router_tb.S_out.Receive Stalled(                   4) @             71000000
+# router_tb.bb4 Data Bucket Finishes Receiving data             71000000
+# Execution cycle=          2, Cycle Time=          5, Average CycleTime=36.000000, Average Throughput=0.027778 
+# 
+# router_tb.bb4 Data Bucket Starts Receiving data             72000000
+### router_tb.RR.arb_S.out2.Send Stalled(                   3) @             72000000
+### router_tb.RR.Sout_PE.Send Stalled(                   1) @             73000000
+# South send
+### router_tb.S_out.Receive Stalled(                   2) @             74000000
+# router_tb.bb4 Data Bucket Finishes Receiving data             74000000
+# Execution cycle=          3, Cycle Time=          3, Average CycleTime=25.000000, Average Throughput=0.040000 
+# 
+# router_tb.bb4 Data Bucket Starts Receiving data             75000000
+### router_tb.N_in.Receive Stalled(                  12) @             75000000
+# I got the packet
+# I separate the address
+# East send
+### router_tb.S_out.Receive Stalled(                   2) @             77000000
+# router_tb.bb4 Data Bucket Finishes Receiving data             77000000
+# Finish always
+# always block begins
+# Execution cycle=          4, Cycle Time=          3, Average CycleTime=19.500000, Average Throughput=0.051282 
+# 
+# router_tb.bb4 Data Bucket Starts Receiving data             78000000
+### router_tb.W_in.Receive Stalled(                  12) @             80000000
+### router_tb.E_in.Receive Stalled(                  12) @             80000000
+### router_tb.E_out.Receive Stalled(                  29) @             81000000
+# router_tb.bb2 Data Bucket Finishes Receiving data             81000000
+# Execution cycle=          5, Cycle Time=         30, Average CycleTime=16.400000, Average Throughput=0.060976 
+# 
+# router_tb.bb2 Data Bucket Starts Receiving data             82000000
+# East send
+# West send
+### router_tb.S_in.Receive Stalled(                  27) @             85000000
+### router_tb.E_out.Receive Stalled(                   4) @             86000000
+# router_tb.bb2 Data Bucket Finishes Receiving data             86000000
+### router_tb.W_out.Receive Stalled(                  19) @             86000000
+# router_tb.bb3 Data Bucket Finishes Receiving data             86000000
+# Execution cycle=          6, Cycle Time=          5, Average CycleTime=14.500000, Average Throughput=0.068966 
+# 
+# router_tb.bb2 Data Bucket Starts Receiving data             87000000
+# Execution cycle=          5, Cycle Time=         20, Average CycleTime=17.400000, Average Throughput=0.057471 
+# 
+# router_tb.bb3 Data Bucket Starts Receiving data             87000000
+# West send
+### router_tb.PE_in.Receive Stalled(                  16) @             90000000
+### router_tb.W_out.Receive Stalled(                   4) @             91000000
+# router_tb.bb3 Data Bucket Finishes Receiving data             91000000
+# Execution cycle=          6, Cycle Time=          5, Average CycleTime=15.333333, Average Throughput=0.065217 
+# 
+# router_tb.bb3 Data Bucket Starts Receiving data             92000000
+# East send
+### router_tb.E_out.Receive Stalled(                   9) @             96000000
+# router_tb.bb2 Data Bucket Finishes Receiving data             96000000
+# Execution cycle=          7, Cycle Time=         10, Average CycleTime=13.857143, Average Throughput=0.072165 
+# 
+# router_tb.bb2 Data Bucket Starts Receiving data             97000000
+run
