@@ -29,77 +29,28 @@ logic [8:0]counter=0;
 
 
 always begin
-    load_start.Receive(flag);
-    #FL;
-    if(flag==1)begin
-        $display("start loading ofm value!");
-    end
-
-    while(flag) begin
     in.Receive(value1);//receive sum1
     #FL;
     if (value1[WIDTH-1:WIDTH-4]==sum1_addr) begin
         sum1_value = value1[7:0];
-		counter=counter+1;
+		counter=counter+1
     end
 
-    if (value1[WIDTH-1:WIDTH-4]==sum2_addr) begin
+    else if (value1[WIDTH-1:WIDTH-4]==sum2_addr) begin
         sum2_value = value1[7:0];
-		counter=counter+1;
+		counter=coounter+1;
     end
 
-    if (value1[WIDTH-1:WIDTH-4]==sum3_addr) begin
+    else if (value1[WIDTH-1:WIDTH-4]==sum3_addr) begin
         sum3_value = value1[7:0];
 		counter=counter+1;
     end
     $display("%m first receive---:%b", value1);
-
-    //in.Receive(value1);//receive sum2
-    #FL;
-    if (value1[WIDTH-1:WIDTH-4]==sum1_addr) begin
-        sum1_value = value1[7:0];
-		counter=counter+1;
-    end
-
-    if (value1[WIDTH-1:WIDTH-4]==sum2_addr) begin
-        sum2_value = value1[7:0];
-		counter=counter+1;
-    end
-
-    if (value1[WIDTH-1:WIDTH-4]==sum3_addr) begin
-        sum3_value = value1[7:0];
-		counter=counter+1;
-    end
-    $display("%m second receive---:%b", value1);
-
-    //in.Receive(value1);//receive sum3
-    #FL;
-    if (value1[WIDTH-1:WIDTH-4]==sum1_addr) begin
-        sum1_value = value1[7:0];
-		counter=counter+1;
-    end
-
-    if (value1[WIDTH-1:WIDTH-4]==sum2_addr) begin
-        sum2_value = value1[7:0];
-		counter=counter+1;
-    end
-
-    if (value1[WIDTH-1:WIDTH-4]==sum3_addr) begin
-        sum3_value = value1[7:0];
-		counter=counter+1;
-    end
-    $display("%m third receive---:%b", value1);
-	if(counter==3)begin
-		flag=0;
-		counter=0;
-		break;
-	end	
-    end
     
     //$display("%m receive value1 is %b in %t", value1, $time);
 
 
-        
+    if(counter==3)begin 
     for (i = 0; i < ROWS; i++) begin//memory for output spike
         for (j = 0; j < COLS; j++) begin
             if (value1[WIDTH-9:WIDTH-10]==output_spike_type) begin
@@ -111,7 +62,8 @@ always begin
             ofm_mem[i][j] = ofm_value;
         end
     end
-
+	counter=0;
+	end
     if (value1[WIDTH-9:WIDTH-10]==res_type) begin
         res_value = value1[7:0];
     end
