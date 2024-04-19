@@ -4,7 +4,7 @@ import SystemVerilogCSP::*;
 
 module filter_load_tb;
 
-
+// Set Channels
 Channel #(.WIDTH(1),.hsProtocol(P4PhaseBD)) load_start();
 Channel #(.WIDTH(12),.hsProtocol(P4PhaseBD)) filter_addr();
 Channel #(.WIDTH(8),.hsProtocol(P4PhaseBD)) filter_data();
@@ -20,6 +20,7 @@ $finish;
 end
 endmodule
 
+// Loading filter values form Text file module
 module filter_loading(interface load_start,interface filter_addr, interface filter_data);
 
 parameter WIDTH_data = 8;
@@ -50,6 +51,7 @@ initial begin
 end
 endmodule
 
+// Data Bucket Module
 module data_bucket (interface r);
   parameter WIDTH = 8;
   parameter BL = 1; //ideal environment    backward delay

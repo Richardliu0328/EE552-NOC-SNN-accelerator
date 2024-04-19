@@ -7,10 +7,11 @@ module filter_load(interface load_start,interface filter_data,interface filter_a
 
 parameter FL=2;
 parameter BL=1;
-parameter WIDTH=35;
-parameter data_size=8;
+parameter WIDTH=35;//the packet size
+parameter data_size=8;// the data size in filter is 8 bit
 //Address
-parameter filter_addrr=4'b0111;
+parameter filter_addrr=4'b0111;// the position of filter in 4X4 mesh
+// PEs address in 4X4 mesh
 parameter PE1_addr=4'b1011;
 parameter PE2_addr=4'b1111;
 parameter PE3_addr=4'b0010;
@@ -22,15 +23,15 @@ parameter PE8_addr=4'b0101;
 parameter PE9_addr=4'b1001;
 parameter PE10_addr=4'b1101;
 
-logic flag1,flag2;
-logic [11:0]row,col;
-logic [data_size-1:0]filter_mem[4:0][4:0];
-logic [4:0]row_cnt;
-logic [4:0]addr;
-logic [7:0]data;
-logic [4:0]counter=0;
-logic [WIDTH-1:0]packet_out1;
-logic [WIDTH-1:0]packet_out2;
+logic flag1;// if flag==1, which means receiving load_start value 1, starts to store data in 2-d memory with addresses
+logic [11:0]row,col;//row and column count in receiving data
+logic [4:0]row_cnt;//row count in sending data
+logic [data_size-1:0]filter_mem[4:0][4:0];//stored filter memory
+logic [4:0]addr;// for receiving address from filter_addr interface
+logic [7:0]data;//for receiving data from filter_data interface
+logic [4:0]counter=0;//to counter
+logic [WIDTH-1:0]packet_out1;// Send packet to odd number of PEs
+logic [WIDTH-1:0]packet_out2;// Send packet to even number of PEs
 
 
 always begin
@@ -51,11 +52,12 @@ always begin
 		counter=counter+1;
 		if(counter==25)begin
 			$display("finish loading data");
-			flag1=0;
-			counter=0;
+			flag1=0;//Lower the flag1
+			counter=0;// Reset counter to 0
 		end	
 	end	
     #BL;
+	$display("Start sending data to PEs");
 		for(row_cnt=0;row_cnt<5;row_cnt=row_cnt+1)begin
 			if(row_cnt==0) begin
 				packet_out1={filter_addrr,PE1_addr,3'b000,filter_mem[row_cnt][0],filter_mem[row_cnt][1],filter_mem[row_cnt][2]};
@@ -106,13 +108,8 @@ always begin
 				out.Send(packet_out2);
 				$display("send packet with 3 data to PE10");
 				#BL;
-				break;
 			end
 		end
 		$display("Send all packets to PEs");
 end
 endmodule	
-	
-			
-			
-	
