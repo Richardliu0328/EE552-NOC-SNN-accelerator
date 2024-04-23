@@ -9,5 +9,4 @@ Channel #(.WIDTH(32),.hsProtocol(P4PhaseBD))  out1(),out2(),out3();
 arbiter_two ar0(in0, in1, out1);
 arbiter_two ar1(in2,in3,out2);
 arbiter_two ar3(out1, out2,out);
-buffer buff(out3,out);
 endmodule
