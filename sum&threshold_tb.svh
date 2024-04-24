@@ -1,6 +1,18 @@
 `timescale 1ns/100ps
 import SystemVerilogCSP::*;
 
+module sum_tb;
+
+Channel #(.hsProtocol(P4PhaseBD), .WIDTH(35)) intf [1:0] ();
+
+sum_loading #(.WIDTH(35)) su(intf[0]);
+Sum_Threshold #(.WIDTH(35)) st(intf[0], intf[1]);
+data_bucket #(.WIDTH(35)) db(intf[1]);
+
+initial begin 
+#100000;
+end
+endmodule
 
 module data_bucket (interface r);
   parameter WIDTH = 8;
@@ -38,7 +50,7 @@ endmodule
 module sum_loading(interface out);
 
 parameter WIDTH = 35;
-parameter FL = 1;
+parameter FL = 2;
 parameter pe1_addr = 4'b1011;
 parameter pe2_addr = 4'b1111;
 parameter pe3_addr = 4'b0010;
@@ -62,11 +74,12 @@ parameter data7 = 8'b00000111;
 parameter data8 = 8'b00001000;
 parameter data9 = 8'b00001001;
 parameter data10 = 8'b00001010;
+parameter data11 = 8'b00001011;
 
 
 
 
-integer i, true = 1;
+integer i;
 
 logic [7:0]res_value = 8'b00000011;//3
 logic [7:0]data = 0;
@@ -80,6 +93,7 @@ logic [WIDTH-1:0]packet_out7;
 logic [WIDTH-1:0]packet_out8;
 logic [WIDTH-1:0]packet_out9;
 logic [WIDTH-1:0]packet_out10;
+logic [WIDTH-1:0]packet_out11;
 
 always begin
 /*
@@ -89,7 +103,7 @@ for(i=0;i<10;i++)begin
 end
 */
 
-
+		
     packet_out1 = {pe1_addr, sum_addr, pe1_addr, zeros, data1};
     packet_out2 = {pe2_addr, sum_addr, pe2_addr, zeros, data2};
     packet_out3 = {pe3_addr, sum_addr, pe3_addr, zeros, data3};
@@ -100,43 +114,33 @@ end
     packet_out8 = {pe8_addr, sum_addr, pe8_addr, zeros, data8};
     packet_out9 = {pe9_addr, sum_addr, pe9_addr, zeros, data9};
     packet_out10 = {pe10_addr, sum_addr, pe10_addr, zeros, data10};
-
-    
+	packet_out11 = {res_addr, sum_addr, res_addr, zeros, data11};
+	for(integer i=0;i<10;i++)begin
     out.Send(packet_out1);
-    #FL;
     out.Send(packet_out2);
-    #FL;
     out.Send(packet_out3);
-    #FL;
     out.Send(packet_out4);
-    #FL;
     out.Send(packet_out5);
-    #FL;
     out.Send(packet_out6);
-    #FL;
     out.Send(packet_out7);
-    #FL;
     out.Send(packet_out8);
-    #FL;
     out.Send(packet_out9);
-    #FL;
     out.Send(packet_out10);
-    #FL;
-    
-    
+    #30;
+	end
+	
+	out.Send(packet_out1);
+    out.Send(packet_out2);
+    out.Send(packet_out3);
+    out.Send(packet_out4);
+    out.Send(packet_out5);
+    out.Send(packet_out6);
+    out.Send(packet_out7);
+    out.Send(packet_out8);
+    out.Send(packet_out9);
+    out.Send(packet_out10);
+	out.Send(packet_out11);
+	
 end
 endmodule
 
-
-module sum_tb;
-
-Channel #(.hsProtocol(P4PhaseBD), .WIDTH(35)) intf [1:0] ();
-
-sum_loading #(.WIDTH(35)) su(intf[0]);
-Sum_Threshold #(.WIDTH(35)) st(intf[0], intf[1]);
-data_bucket #(.WIDTH(35)) db(intf[1]);
-
-initial begin 
-#100000;
-end
-endmodule
