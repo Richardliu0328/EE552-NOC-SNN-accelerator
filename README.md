@@ -10,11 +10,19 @@ Project Overview
 • Spiking Neural Network Computation: Implements a CNN-like convolution operation within an SNN framework.
 
 • Asynchronous Design: Uses handshaking protocols to improve efficiency over synchronous architectures.
+
 • RTL Implementation & Verification: Modeled and simulated using SystemVerilog with gate-level components and performance analysis.
+
 Key Features
+
 • Custom NoC for scalable communication
+
 • PEs for convolution, pooling, and summation
+
 • Packetized data transmission with memory access
+
 • Verification using SystemVerilog testbenches
+
 • Performance analysis on latency, throughput, bottlenecks, and deadlock possibilities
+
 The project includes architecture definition, micro-architecture design, RTL coding, simulation, and final verification. Future enhancements may include expanding the input feature map size, increasing parallelism by adding more sum & accumulate blocks, and exploring multi-layer implementations.
